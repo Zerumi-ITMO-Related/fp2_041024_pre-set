@@ -2,7 +2,7 @@ module Main (main) where
 
 import TrieModule
 
-ourTrie :: Trie
+ourTrie :: Trie Char
 ourTrie = insert "yay" $ insert "hello" empty
 
 main :: IO ()
@@ -13,3 +13,4 @@ main = do
     print $ member "yay" ourTrie
     print $ _map (const "looooool") ourTrie
     print $ toList ourTrie
+
