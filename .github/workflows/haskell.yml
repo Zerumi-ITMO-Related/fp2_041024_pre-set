@@ -1,0 +1,37 @@
+name: Haskell Updated CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+  
+jobs:
+  hlint:
+    name: Run lint
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: 'Set up HLint'
+      uses: haskell-actions/hlint-setup@v2
+
+    - name: 'Run HLint'
+      uses: haskell-actions/hlint-run@v2
+      with:
+        path: src/
+        fail-on: warning
+  build-test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: haskell-actions/setup@v2
+        with:
+          ghc-version: '9.6.6'
+          enable-stack: true
+          stack-version: 'latest'
+      - run: stack --no-terminal test --fast
