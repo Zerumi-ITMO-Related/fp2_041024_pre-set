@@ -1,3 +1,4 @@
+{-# LANGUAGE DeriveGeneric #-}
 module TrieModule
     ( Trie(..),
       empty,
@@ -13,9 +14,15 @@ module TrieModule
     ) where
 
 import Prelude hiding (filter)
+import GHC.Generics (Generic)
+import Data.Validity
+import Test.Validity (GenValid)
 
 -- Definition of Trie data structure
-data Trie a = Node [(a, Trie a)] Bool deriving (Eq, Show)
+data Trie a = Node [(a, Trie a)] Bool deriving (Eq, Show, Generic)
+
+instance (Validity a) => Validity (Trie a)
+instance (GenValid a) => GenValid (Trie a)
 
 -- Creates an empty Trie
 empty :: Trie a
@@ -23,13 +30,18 @@ empty = Node [] False
 
 -- Inserts a word into the Trie
 insert :: Eq a => [a] -> Trie a -> Trie a
-insert [] (Node children _) = Node children True
-insert (ch:rest) (Node children isEnd) = Node (insert' ch rest children) isEnd
+insert [] trie = trie
+insert arr trie = insert' arr trie
   where
-    insert' x xs [] = [(x, insert xs empty)]
-    insert' x xs ((c, t):ts)
-      | x == c    = (c, insert xs t) : ts
-      | otherwise = (c, t) : insert' x xs ts
+    insert' :: Eq a => [a] -> Trie a -> Trie a
+    insert' [] (Node children _) = Node children True
+    insert' (ch:rest) (Node children isEnd) = Node (insert'' ch rest children) isEnd
+      where
+        insert'' :: Eq a => a -> [a] -> [(a, Trie a)] -> [(a, Trie a)]
+        insert'' x xs [] = [(x, insert' xs empty)]
+        insert'' x xs ((c, t):ts)
+          | x == c    = (c, insert' xs t) : ts
+          | otherwise = (c, t) : insert'' x xs ts
 
 -- Removes a word from the Trie
 remove :: Eq a => [a] -> Trie a -> Trie a

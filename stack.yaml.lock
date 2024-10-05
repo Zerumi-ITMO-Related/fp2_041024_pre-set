@@ -3,7 +3,42 @@
 # For more information, please see the documentation at:
 #   https://docs.haskellstack.org/en/stable/lock_files
 
-packages: []
+packages:
+- completed:
+    hackage: hspec-2.11.9@sha256:6e7fb7a40404f11b028f1b19f07779887b2c8af04cbae7eaea73e83c440954c7,1763
+    pantry-tree:
+      sha256: 011f3767b57b7ecc9b34c390a6a0f9951bb0e503401365cf99ab79316ab2a898
+      size: 584
+  original:
+    hackage: hspec-2.11.9
+- completed:
+    hackage: HUnit-1.6.2.0@sha256:1a79174e8af616117ad39464cac9de205ca923da6582825e97c10786fda933a4,1588
+    pantry-tree:
+      sha256: 4f20a5a33866171260d0ee1e256c27f53cc84d37a68d498c3e12347f4e3d05b4
+      size: 878
+  original:
+    hackage: HUnit-1.6.2.0
+- completed:
+    hackage: validity-0.12.1.0@sha256:c31797bae381a069146f068b986334f59dbc3601a3875049f2c54a4b8c90a8dd,2534
+    pantry-tree:
+      sha256: 29f983fc0d80adf2059fd5af5977b3df87dba7c30cb60e61f58b3b6a870fec47
+      size: 338
+  original:
+    hackage: validity-0.12.1.0
+- completed:
+    hackage: genvalidity-hspec-1.0.0.3@sha256:9b43b986c1ee235d7b94bfd46f1488ca02611c76b71225cac18eb5f851775127,2787
+    pantry-tree:
+      sha256: ec10df3507ec9733a1ebae0e8af1a2d8fe3c7f81e2fe23a270cfdca753fc176f
+      size: 1929
+  original:
+    hackage: genvalidity-hspec-1.0.0.3
+- completed:
+    hackage: QuickCheck-2.15.0.1@sha256:ff732606dd8b3f76e3cb87a26516583d183729bf540085228c82adf037aca8bf,8751
+    pantry-tree:
+      sha256: f05339cb3b9a929fcd533ce101cbf55884301e8bb446d9d528bd5794db22f936
+      size: 2437
+  original:
+    hackage: QuickCheck-2.15.0.1
 snapshots:
 - completed:
     sha256: 6a553c5fa4f211a9b639da5e5359124a93627852dd9967bed202fdd71b25f15e

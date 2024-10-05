@@ -34,7 +34,12 @@ library
       src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
-      base >=4.7 && <5
+      HUnit >=1.6.2.0
+    , QuickCheck >=2.15.0.1
+    , base >=4.7 && <5
+    , genvalidity-hspec >=1.0.0.0
+    , hspec >=2.11.9
+    , validity >=0.12.0.2
   default-language: Haskell2010
 
 executable fp2041024pre-set-exe
@@ -47,8 +52,13 @@ executable fp2041024pre-set-exe
       app
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      HUnit >=1.6.2.0
+    , QuickCheck >=2.15.0.1
+    , base >=4.7 && <5
     , fp2041024pre-set
+    , genvalidity-hspec >=1.0.0.0
+    , hspec >=2.11.9
+    , validity >=0.12.0.2
   default-language: Haskell2010
 
 test-suite fp2041024pre-set-test
@@ -62,6 +72,11 @@ test-suite fp2041024pre-set-test
       test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      HUnit >=1.6.2.0
+    , QuickCheck >=2.15.0.1
+    , base >=4.7 && <5
     , fp2041024pre-set
+    , genvalidity-hspec >=1.0.0.0
+    , hspec >=2.11.9
+    , validity >=0.12.0.2
   default-language: Haskell2010
