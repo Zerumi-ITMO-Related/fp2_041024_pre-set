@@ -47,6 +47,15 @@ spec = do
       forAllValid $ \trie ->
         insert "" trie `shouldBe` trie
 
+    it "unit testing numbers trie, polymorphic test" $ do
+      let numTrie = empty :: Trie Int
+      let updated = insert [1] $ insert [1, 2, 3] numTrie
+      toList updated `shouldBe` [[1], [1, 2, 3]]
+      member [1, 2, 3] updated `shouldBe` True
+      member [1, 2, 4] updated `shouldBe` False
+      let removed = remove [1, 2, 3] updated
+      member [1, 2, 3] removed `shouldBe` False
+
 -- Helper to run the tests using hspec
 main :: IO ()
 main = hspec spec
